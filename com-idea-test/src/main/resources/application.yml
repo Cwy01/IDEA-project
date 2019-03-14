@@ -1,5 +1,5 @@
 server:
-  port: 8585
+  port: 8888
   
 spring:
   mvc:
@@ -12,3 +12,15 @@ spring:
       classpath:/resources/,
       classpath:/static/,
       classpath:/public/
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 300MB
+      max-request-size: 300MB
+#文件存储路径
+prop:
+  upload-folder: ./files/
+  download-folder: F:/download/
+  download-file: file.zip
+
+
