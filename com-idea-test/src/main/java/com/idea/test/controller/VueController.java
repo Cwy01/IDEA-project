@@ -10,6 +10,9 @@ import com.idea.test.pojo.Status;
 import com.idea.test.pojo.TableStatus;
 import com.idea.test.service.VueService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @RestController
 public class VueController {
 
@@ -44,5 +47,4 @@ public class VueController {
         modelAndView.setViewName("/index");
         return modelAndView;
     }
-
 }
