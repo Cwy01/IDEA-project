@@ -21,15 +21,7 @@ public class VueController {
 	@Autowired
 	private VueService vueService;
 
-	@GetMapping("/api/v1/topics")
-	Status topics() {
-		return vueService.topics();
-	}
 
-	@GetMapping("/api/v1/topic/{id}")
-	Status topic() {
-		return vueService.topic();
-	}
 
 	@GetMapping("/api/v1/pieDatas")
 	Status pieDatas() {

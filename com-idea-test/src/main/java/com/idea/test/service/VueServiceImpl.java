@@ -51,15 +51,32 @@ public class VueServiceImpl implements VueService{
 	}
 
 	@Override
-	public Status topics() {
+	public Status getTopics() {
 		return new Status(success,articles);
 	}
 
 	@Override
-	public Status topic() {
+	public Status topic(String id) {
+		System.out.println(id);
 		return new Status(success,first);
 	}
-	
+
+	@Override
+	public Status postTopics(Article article) {
+		articles.add(article);
+		return new Status(success,articles);
+	}
+
+	@Override
+	public Status putTopics() {
+		return new Status(success,articles);
+	}
+
+	@Override
+	public Status deleteTopics() {
+		return new Status(success,articles);
+	}
+
 	@Override
 	public Status pieDatas() {
 		return new Status(success,pies);

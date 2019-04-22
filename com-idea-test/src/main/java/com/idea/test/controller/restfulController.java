@@ -1,27 +1,43 @@
 package com.idea.test.controller;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.idea.test.pojo.Article;
+import com.idea.test.pojo.Status;
+import com.idea.test.service.VueService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class restfulController {
+    @Autowired
+    private VueService vueService;
 
-    @GetMapping("/api/v1/get")
-    public void get(){
-
+    @GetMapping("/api/v1/topics")
+    Status getTopics() {
+        return vueService.getTopics();
     }
 
-    @PostMapping("/api/v1/post")
-    public void post(){
-
+    @GetMapping("/api/v1/topic/{id}")
+    Status findTopicById(@PathVariable("id")String id) {
+        return vueService.topic(id);
     }
 
-    @PutMapping("/api/v1/put")
-    public void put(){
-
+    @PostMapping("/api/v1/topics")
+    Status postTopics(@RequestBody Article article) {
+        return vueService.postTopics(article);
     }
 
-    @DeleteMapping("/api/v1/delete")
-    public void delete(){
+    @PutMapping("/api/v1/topics")
+    Status putTopics() {
 
+        return vueService.putTopics();
+    }
+
+    @DeleteMapping("/api/v1/topics")
+    Status deleteTopics() {
+
+        return vueService.deleteTopics();
     }
 }
